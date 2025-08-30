@@ -1,0 +1,54 @@
+Scan for http://testphp.vulnweb.com/:
+[XSS] Vulnerability found at http://testphp.vulnweb.com/
+[SQLi] Vulnerability found at http://testphp.vulnweb.com/
+
+--- Scan on 2025-08-19 08:17:18.016766 ---
+Target URL: http://testphp.vulnweb.com/
+[XSS] Vulnerability #1 at http://testphp.vulnweb.com/
+ - Severity: Medium
+ - Payload: <script>alert('XSS')</script>
+ - Form Action: search.php?test=query
+ - Method: POST
+
+
+--- Scan on 2025-08-19 08:33:27.433236 ---
+Target URL: http://testphp.vulnweb.com/
+[XSS] Vulnerability #1 at http://testphp.vulnweb.com/
+ - Severity: Medium
+ - Payload: <script>alert('XSS')</script>
+ - Form Action: search.php?test=query
+ - Method: POST
+
+[CSRF] Vulnerability #1 at http://testphp.vulnweb.com/
+ - Severity: High
+ - Issue: Missing CSRF token in form
+ - Form Action: search.php?test=query
+ - Method: POST
+
+
+--- Scan on 2025-08-19 08:46:34.689838 ---
+Target URL: http://testphp.vulnweb.com/
+[XSS] Vulnerability #1 at http://testphp.vulnweb.com/
+ - Severity: Medium
+ - Payload: <script>alert('XSS')</script>
+ - Form Action: search.php?test=query
+ - Method: POST
+
+
+--- Scan on 2025-08-19 11:25:33.455578 ---
+Target URL: http://www.vulnweb.com/
+No vulnerabilities detected.
+
+--- Scan on 2025-08-19 11:25:58.830372 ---
+Target URL: http://testaspnet.vulnweb.com/
+No vulnerabilities detected.
+
+--- Scan on 2025-08-19 11:26:22.382223 ---
+Target URL: http://testhtml5.vulnweb.com/
+[XSS] Vulnerability #1 at http://testhtml5.vulnweb.com/
+ - Severity: Medium
+ - Payload: <script>alert('XSS')</script>
+ - Form Action: /login
+ - Method: POST
+
+

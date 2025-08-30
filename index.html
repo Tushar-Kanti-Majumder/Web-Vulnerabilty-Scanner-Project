@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web Vulnerability Scanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4a90e2;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button, #downloadBtn {
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover, #downloadBtn:hover {
+            background-color: #357abd;
+        }
+        pre#result {
+            white-space: pre-wrap;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: monospace;
+            height: 350px;
+            overflow-y: auto;
+            color: black;
+        }
+        pre#history {
+            white-space: pre-wrap;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            padding: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 25px;
+            font-family: monospace;
+            font-size: 13px;
+        }
+        .flash {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .flash-error {
+            background-color: #f2dede;
+            color: #a94442;
+            border: 1px solid #ebccd1;
+        }
+        .flash-success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+        }
+        #loading {
+            display: none;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #4a90e2;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Vulnerability Scanner</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form id="scanForm" method="POST" action="/">
+        <input type="text" name="url" placeholder="Enter target URL, e.g. http://example.com" required />
+        <button type="submit">Scan</button>
+    </form>
+
+    <div id="loading">Scanning, please wait...</div>
+
+    <pre id="result">{{ result }}</pre>
+
+    <button id="downloadBtn" onclick="window.location.href='/download'">Download Results</button>
+
+    <h2>Scan History</h2>
+    <pre id="history">{{ history }}</pre>
+
+    <div class="footer">
+        &copy; 2025 Your Cybersecurity Internship Project
+    </div>
+
+<script>
+    const form = document.getElementById('scanForm');
+    const loading = document.getElementById('loading');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', () => {
+        loading.style.display = 'block';
+        result.textContent = "";  // Clear old results on new scan
+    });
+
+    // Auto-scroll the results to bottom
+    function autoScroll() {
+        result.scrollTop = result.scrollHeight;
+    }
+
+    if (result.textContent.trim().length > 0) {
+        autoScroll();
+    }
+</script>
+</body>
+</html>
