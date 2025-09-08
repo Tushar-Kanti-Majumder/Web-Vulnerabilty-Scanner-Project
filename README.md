@@ -1,28 +1,38 @@
-# Web Application Vulnerability Scanner
 
-A Python-based Web Application Vulnerability Scanner developed during my internship at **Elevate Labs**. This tool is designed to help identify common web vulnerabilities such as Cross-Site Scripting (XSS), SQL Injection (SQLi), and Cross-Site Request Forgery (CSRF) through automated scanning. It features a user-friendly Flask web interface and detailed logging for educational and internal security assessment purposes.
 
----
+ 🔍 Web Application Vulnerability Scanner
 
-## Features
+During my internship at Elevate Labs, I built a lightweight Python tool to help identify common web vulnerabilities. This scanner focuses on:
 
-- **XSS Detection:** Scans web pages for potential Cross-Site Scripting vulnerabilities by injecting payloads and analyzing responses.
-- **SQL Injection (SQLi) Detection:** Tests input fields and URL parameters for SQL injection flaws.
-- **CSRF Detection:** Checks for missing or improper CSRF tokens in forms.
-- **Logging:** Records scan results with timestamps, payloads used, and severity levels.
-- **Web Interface:** Interactive Flask-based UI for easy scanning and result visualization.
-- **Educational & Internal Use:** Intended for learning and internal security assessments only.
+- ✅ Cross-Site Scripting (XSS)  
+- ✅ SQL Injection (SQLi)  
+- ✅ Cross-Site Request Forgery (CSRF)  
 
----
+It’s mainly for educational and internal testing purposes — the idea is to simulate real-world attacks so developers can better understand and patch security holes.
 
-## Tools & Technologies Used
 
-- **Python 3** — Core programming language
-- **Flask** — Web framework for the user interface
-- **Requests** — HTTP library for sending requests and interacting with web pages
-- **BeautifulSoup** — HTML parsing and analysis
-- **Kali Linux** — Development and testing environment (optional but recommended)
-- Other dependencies listed in `requirements.txt`
+ 🛠️ What It Does
 
----
+- Crawls websites automatically and extracts forms using BeautifulSoup  
+- Injects payloads to test for XSS, SQLi, and CSRF vulnerabilities  
+- Keeps detailed logs of every scan, including:  
+  - When the scan happened  
+  - What payloads were used  
+  - How severe the vulnerabilities are  
+- Comes with a simple Flask web interface for easy use  
+- Lets you download the scan logs directly from the UI  
+
+
+
+ 🚀 Tools & Tech I Used
+
+| Tool / Library     | What It’s For                              |
+|--------------------|--------------------------------------------|
+| Python 3           | The main language behind the tool          |
+| Flask              | To build the web interface                  |
+| Requests           | For sending HTTP requests                    |
+| BeautifulSoup4     | Parsing HTML and grabbing forms             |
+| Validators         | Making sure URLs are valid                   |
+| HTML (index.html)  | The frontend UI                              |
+| Kali Linux         | My dev and testing environment               |
 
