@@ -26,10 +26,3 @@ A Python-based Web Application Vulnerability Scanner developed during my interns
 
 ---
 
-## Setup Instructions
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/yourusername/webapp-vuln-scanner.git
-   cd webapp-vuln-scanner
